@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fbe8ee">
+<title>For Baba · 15 Months</title>
+<link rel="icon" href="img/s/69.webp">
+<link rel="preload" href="vendor/three.module.min.js" as="script" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/style.css?v=20">
+</head>
+<body class="is-locked">
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ LOCK ============ -->
+<section id="lock">
+  <div class="lock-inner">
+    <p class="hand lock-for">for my baba</p>
+    <h1 class="lock-title"><span class="big">15</span><span class="it">months</span></h1>
+    <p class="lock-sub">of <em>Hello Hi!</em>, of <em>Yoholoo</em>, of choosing each other</p>
+    <div class="clocks">
+      <div class="clock"><span class="clock-place">India · Betu</span><span class="clock-time" id="clkIN">--:--</span></div>
+      <div class="clock-link"><i></i><span>1 hour</span><i></i></div>
+      <div class="clock"><span class="clock-place">Myanmar · Baba</span><span class="clock-time" id="clkMM">--:--</span></div>
+    </div>
+    <div id="countdown" class="countdown">
+      <div><b id="cdD">0</b><span>days</span></div>
+      <div><b id="cdH">0</b><span>hours</span></div>
+      <div><b id="cdM">0</b><span>min</span></div>
+      <div><b id="cdS">0</b><span>sec</span></div>
+    </div>
+    <p class="lock-note" id="lockNote">opens on 9 November at <b>7:29 pm</b> your time,<br>the exact minute you first said hi</p>
+    <button id="openBtn" class="btn-open" hidden><span>open it, baba</span></button>
+  </div>
+</section>
+
+<main id="story">
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-theme="dawn" data-scene="globe">
+  <p class="eyebrow r">9 August 2025 → 9 November 2026</p>
+  <h1 class="hero-name r-chars">Eaindray<br><em>Khaing Mon,</em></h1>
+  <p class="lead r">457 days ago, a girl skipped her own birthday to finish her assignments, got bored, opened Threads, and changed my whole life.</p>
+  <div class="dual r">
+    <div><b>6:29 pm</b><span>for me</span></div>
+    <div class="dual-heart">♡</div>
+    <div><b>7:29 pm</b><span>for you</span></div>
+  </div>
+  <p class="hand center r">the same minute, forever</p>
+  <div class="scroll-cue"><span>scroll slowly</span><i></i></div>
+</section>
+
+<!-- ============ I. HELLO HI ============ -->
+<section class="chapter" data-theme="dawn" data-scene="globe" id="ch1">
+  <p class="eyebrow r">chapter one</p>
+  <h2 class="h r-chars">Hello Hi!</h2>
+  <p class="p r">On 8 August 2025 I posted something on Threads I almost didn't post. I was lonely. I said I needed someone to talk to.</p>
+  <p class="p r">The next evening was your birthday. You weren't even celebrating, you were stuck with school assignments. You got bored, you scrolled, and out of every post in the world, you found mine.</p>
+
+  <div class="ig r-up" id="igChat">
+    <div class="ig-head"><img width="1280" height="960" src="img/p/30.webp" alt=""><div><b>Princess Grace</b><span>Instagram</span></div></div>
+    <div class="ig-time">Sat 6:29 pm</div>
+    <div class="ig-body"></div>
+  </div>
+
+  <p class="p r">You were <em>Grace</em>. I was <em>Shubham</em>. Two strangers an hour apart, saying hi on an ordinary Saturday evening, which turned out to be the luckiest minute of my life.</p>
+
+  <div class="hop r-up">
+    <div class="hop-app hop-ig">Instagram<small>banned in Myanmar</small></div>
+    <svg class="hop-path" viewBox="0 0 300 80" preserveAspectRatio="none"><path d="M10 60 C 90 -10, 210 -10, 290 60"/></svg>
+    <svg class="hop-plane" viewBox="0 0 24 24"><path d="M2 11.5 21 3l-3.6 17.3-5.6-4.6-3 3 .5-4.6L17 6.8 7.6 13z"/></svg>
+    <div class="hop-app hop-tg">Telegram<small>home ever since</small></div>
+  </div>
+  <p class="p r">Two days later you told me Instagram is banned in Myanmar, along with every Meta app. So I made a Telegram account that day. Honestly, I'd have learned carrier pigeons for you.</p>
+</section>
+
+<!-- ============ II. THE NIGHT YOU CRIED ============ -->
+<section class="chapter" data-theme="rose" data-scene="petals" id="ch2">
+  <p class="eyebrow r">chapter two</p>
+  <h2 class="h r-chars">The night you<br><em>cried for me</em></h2>
+  <p class="p r">A few nights in, I told you about my past. The darkest parts, the ones I don't tell anyone.</p>
+  <p class="p r big-quote">And you cried. For me. For a boy you had known for a few days.</p>
+  <p class="p r">That was the night I fell. I felt loved, understood and held, and I could feel your warmth from more than 2000 kilometres away. I remember thinking: <em>a girl who cries for me, I can never let her cry again.</em> She's the one.</p>
+
+  <figure class="vcard r-up" data-autoplay>
+    <video width="960" height="540" src="vid/v2.mp4" poster="vid/v2.webp" muted loop playsinline preload="metadata"></video>
+    <figcaption class="hand">you, hugging me across 2000 km</figcaption>
+  </figure>
+
+  <p class="p r">I had it all planned: I'd confess on 29 August, my birthday, twenty days after yours. I lasted about five days. I couldn't hold it in.</p>
+  <p class="p r">So I wrote you this.</p>
+
+  <button class="envelope r-up" id="envelope" aria-label="Open the letter">
+    <span class="env-back"></span>
+    <span class="env-paper"><span class="hand">Eaindray Khaing Mon…</span></span>
+    <span class="env-front"></span>
+    <span class="env-flap"></span>
+    <span class="env-seal">♥</span>
+  </button>
+  <p class="hand center r tap-hint">tap the letter</p>
+
+  <p class="p r">Around the 16th of August we became <em>us</em>. And every 9th since then has been ours.</p>
+</section>
+
+<!-- ============ III. FIRSTS ============ -->
+<section class="chapter" data-theme="dawn" data-scene="petals" id="ch3">
+  <p class="eyebrow r">chapter three</p>
+  <h2 class="h r-chars">Firsts</h2>
+
+  <div class="eleven r-up">
+    <div class="eleven-time"><span>11</span><i>:</i><span>11</span></div>
+    <p class="eleven-date">13 August 2025</p>
+  </div>
+  <p class="p r">The first time I heard your voice. Everyone makes a wish at 11:11. Mine came true while it was still 10:11 for me.</p>
+</section>
+
+<section class="pin-reveal" data-theme="dawn" data-scene="petals" id="reveal">
+  <div class="reveal-stage">
+    <p class="reveal-cap reveal-cap1 h-sm">For two months, I fell in love with you <em>in pieces.</em></p>
+    <div class="frags">
+      <img class="frag" width="1280" height="628" src="img/p/34.webp" alt="">
+      <img class="frag" width="972" height="751" src="img/p/35.webp" alt="">
+      <img class="frag" width="1280" height="551" src="img/p/19.webp" alt="">
+      <img class="frag" width="720" height="394" src="img/p/31.webp" alt="">
+      <img class="frag" width="1080" height="667" src="img/p/27.webp" alt="">
+      <img class="frag" width="1280" height="925" src="img/p/33.webp" alt="">
+      <img class="frag" width="1280" height="552" src="img/p/29.webp" alt="">
+      <video class="frag" width="720" height="544" src="vid/v1.mp4" poster="vid/v1.webp" muted loop playsinline autoplay preload="metadata"></video>
+    </div>
+    <div class="reveal-face"><img width="1280" height="960" src="img/p/00.webp" alt=""></div>
+    <p class="reveal-cap reveal-cap2 h-sm">and then, <em>you.</em></p>
+  </div>
+</section>
+
+<section class="chapter" data-theme="dawn" data-scene="petals" id="ch3b">
+  <p class="p r">9 October, <b>12:00 am</b> for you. Still 8 October, 11 pm for me. We'd planned it for the 9th, and for you it was the 9th.</p>
+  <p class="p r">Before that night I loved you for your heart. That night I fell for your face too. We both did.</p>
+  <div class="polaroids r-up">
+    <figure class="pol pol-l"><img width="1280" height="960" src="img/p/01.webp" alt=""><figcaption class="hand">you ♡</figcaption></figure>
+    <figure class="pol pol-r"><img width="575" height="1280" src="img/p/02.webp" alt=""><figcaption class="hand">me (sorry)</figcaption></figure>
+  </div>
+
+  <div class="datechip r">12 November 2025 · 2:21 pm</div>
+  <p class="p r">Our first video call. You were so nervous. You'd never been comfortable on video calls with anyone, and you thought this would be the same. We did it anyway, together. Now we video call almost every single day, and I can't imagine a day without that face on my screen.</p>
+  <div class="duo r-up">
+    <img width="576" height="1280" src="img/p/39.webp" alt="" loading="lazy">
+    <img width="689" height="1400" src="img/p/48.webp" alt="" loading="lazy">
+  </div>
+</section>
+
+<!-- ============ IV. US ============ -->
+<section class="chapter" data-theme="blush" data-scene="petals" id="ch4">
+  <p class="eyebrow r">chapter four</p>
+  <h2 class="h r-chars">Us</h2>
+  <p class="p r">It started with <em>Grace</em> and <em>Shubham</em>. Then <em>baby</em>. Then you became my <em>Baba</em> and I became your <em>Betu</em>. Then <em>Bubu</em> and <em>Dudu</em>. And somewhere along the way, about a hundred more.</p>
+</section>
+
+<section class="pin-names" data-theme="blush" data-scene="petals" id="names">
+  <div class="names-stage">
+    <div class="cyl" id="cyl"></div>
+    <p class="hand names-cap">all of these mean you</p>
+  </div>
+</section>
+
+<section class="chapter" data-theme="blush" data-scene="petals" id="ch4b">
+  <p class="p r">We have a whole language nobody else speaks. We say <em>fuck you</em> to each other in the softest, most innocent way possible. <em>Smacky smacky.</em> We ask each other the cutest questions and answer with the most unexpected nonsense, and then we both go <em>oh, oh, oh.</em> Our baby noises would make anyone call a doctor.</p>
+  <p class="p r">I love having every one of these little moments with you. Nobody else in the world gets them. They're ours.</p>
+  <img class="sticker-float r-up" width="512" height="512" src="img/s/20.webp" alt="" loading="lazy">
+
+  <h3 class="h-sm r">Our heaven</h3>
+  <p class="p r">We built our own little world on Discord: a cuddle corner, a movie corner, an anime corner, a YouTube corner and a music room. K-dramas, movies, TikToks, YouTube, doomscrolling side by side from two different countries.</p>
+  <div class="discord r-up">
+    <img width="1076" height="2373" src="img/x/3.webp" alt="" loading="lazy">
+    <img width="1080" height="2354" src="img/x/0.webp" alt="" loading="lazy">
+    <img width="1080" height="542" src="img/x/1.webp" alt="" loading="lazy">
+  </div>
+  <p class="p r">And studying together, me at my desk and you at yours, are some of my favourite hours ever.</p>
+  <img class="sticker-wide r-up" width="512" height="512" src="img/s/23.webp" alt="" loading="lazy">
+
+  <h3 class="h-sm r">Then we made <em>us</em></h3>
+  <p class="p r">Our own sticker pack, <em>Shubham &amp; Eaindray</em>. You told me making it was one of your favourite moments ever. Every hug, kiss, piggyback, tantrum and <em>gugugaga</em> we can't do in person yet, we do in stickers.</p>
+  <div class="orb r-up" id="orb"><div class="orb-rot" id="orbRot"></div></div>
+  <p class="hand center r">drag to spin our little world</p>
+
+  <figure class="vcard tall r-up" data-autoplay data-sound>
+    <video width="960" height="540" src="vid/v3.mp4" poster="vid/v3.webp" muted loop playsinline preload="metadata"></video>
+    <figcaption class="hand">you, playing guitar. "nothing special," you'd say. everything, i'd say. <span class="snd">tap for sound</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ V. THINGS ONLY I NOTICE ============ -->
+<section class="chapter" data-theme="cream" data-scene="petals" id="ch5">
+  <p class="eyebrow r">chapter five</p>
+  <h2 class="h r-chars">Things only<br><em>I notice</em></h2>
+
+  <article class="trait r-up">
+    <img width="1280" height="960" src="img/p/30.webp" alt="" loading="lazy">
+    <div><span class="trait-n">01</span><h3 class="h-sm">Your perfectionism</h3>
+    <p class="p">You can't do anything halfway. Shopping, studying, one single message, everything has to be perfect. Some people would find it exhausting. I find it the most beautiful thing about you. It makes me want to give my 100% too.</p></div>
+  </article>
+
+  <article class="trait r-up">
+    <img class="st" width="512" height="512" src="img/s/44.webp" alt="" loading="lazy">
+    <div><span class="trait-n">02</span><h3 class="h-sm">Your competitiveness</h3>
+    <p class="p">You turn anything into a competition, and then you win it. I have fully accepted my fate.</p></div>
+  </article>
+
+  <article class="trait r-up">
+    <div class="scramble" id="scramble">I love you</div>
+    <div><span class="trait-n">03</span><h3 class="h-sm">Your dancing letters</h3>
+    <p class="p">Sometimes your letters swap places. We laugh about it together, and honestly, I'd read your jumbled words over anyone's perfect ones.</p></div>
+  </article>
+
+  <article class="trait r-up">
+    <img class="st" width="512" height="512" src="img/s/41.webp" alt="" loading="lazy">
+    <div><span class="trait-n">04</span><h3 class="h-sm">Your… sound effects</h3>
+    <p class="p">You fart. A lot. You pick your nose, very proudly. And I still think you're the cutest person alive. That's how you know it's real love.</p></div>
+  </article>
+
+  <article class="trait r-up">
+    <img width="1080" height="1197" src="img/p/25.webp" alt="" loading="lazy">
+    <div><span class="trait-n">05</span><h3 class="h-sm">The little things</h3>
+    <p class="p">Your wide smile with your one-of-a-kind teeth. Your second lobe piercing. Your eyes in every mood. The banana avatar you made of yourself. I keep all of them.</p></div>
+  </article>
+  <div class="mosaic r-up">
+    <img width="971" height="1280" src="img/p/16.webp" alt="" loading="lazy">
+    <img width="916" height="972" src="img/p/24.webp" alt="" loading="lazy">
+    <img width="720" height="1280" src="img/p/32.webp" alt="" loading="lazy">
+    <img width="1080" height="986" src="img/p/26.webp" alt="" loading="lazy">
+  </div>
+</section>
+
+<!-- ============ EVIDENCE (horizontal) ============ -->
+<section class="pin-wall" data-theme="cream" data-scene="petals" id="wall">
+  <div class="wall-head"><p class="eyebrow">exhibit A</p><h2 class="h-sm">we are both <em>deeply unserious</em></h2></div>
+  <div class="wall-track" id="wallTrack">
+    <img width="643" height="1400" src="img/p/44.webp" alt="" loading="lazy"><img width="576" height="1280" src="img/p/04.webp" alt="" loading="lazy">
+    <img width="643" height="1400" src="img/p/45.webp" alt="" loading="lazy"><img width="576" height="1280" src="img/p/11.webp" alt="" loading="lazy">
+    <img width="576" height="1280" src="img/p/40.webp" alt="" loading="lazy"><img width="576" height="1280" src="img/p/08.webp" alt="" loading="lazy">
+    <img width="658" height="1400" src="img/p/37.webp" alt="" loading="lazy"><img width="576" height="1280" src="img/p/07.webp" alt="" loading="lazy">
+    <img width="658" height="1400" src="img/p/42.webp" alt="" loading="lazy"><img width="576" height="1280" src="img/p/12.webp" alt="" loading="lazy">
+    <img width="658" height="1400" src="img/p/38.webp" alt="" loading="lazy"><img width="576" height="1280" src="img/p/09.webp" alt="" loading="lazy">
+    <figure class="wall-last"><img width="676" height="1280" src="img/p/50.webp" alt="" loading="lazy"><figcaption class="hand">we called so long your phone overheated</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ VI. OUR NIGHTS ============ -->
+<section class="chapter" data-theme="night" data-scene="stars" id="ch6">
+  <p class="eyebrow r">chapter six</p>
+  <h2 class="h r-chars">Our nights</h2>
+  <p class="p r">Every night, the same little ritual. I never want it to end.</p>
+</section>
+
+<section class="pin-night" data-theme="night" data-scene="stars" id="night">
+  <div class="phone">
+    <div class="phone-head"><img width="1280" height="960" src="img/p/00.webp" alt=""><div><b>Baba ♡</b><span id="phStatus">online</span></div></div>
+    <div class="phone-body" id="phBody"></div>
+  </div>
+</section>
+
+<section class="chapter" data-theme="night" data-scene="stars" id="ch6b">
+  <p class="p r">These days you call me every night. You can't talk since you don't have a room of your own, so I do the talking. I tell you nice things, and I sing you our song.</p>
+  <div class="call r-up">
+    <div class="call-top"><span class="call-dot"></span><span>Baba · </span><span id="callT">00:00</span></div>
+    <div class="lyrics" id="lyrics">
+      <span>my shmol little baba</span>
+      <span>itty bitty baba</span>
+      <span>you're my cutiepie</span>
+      <span>my oompy loompy baba</span>
+      <span>uutu buutu baba</span>
+      <span class="lyr-last">i love you the most</span>
+    </div>
+  </div>
+
+  <h3 class="h-sm r">Our reels</h3>
+  <p class="p r">Remember our reels ritual? After you fell asleep I'd stay up hunting for the most lovey-dovey reels and drop them in our chat. Every morning you'd wake up to a pile of them and reply to every single one. It was one of our best little loves. Somewhere along the way we stopped, and I want it back, baba. I'm bringing it back.</p>
+  <img class="sticker-wide r-up" width="512" height="512" src="img/s/31.webp" alt="" loading="lazy">
+</section>
+
+<!-- ============ VII. PROMISES ============ -->
+<section class="chapter" data-theme="rose" data-scene="petals" id="ch7">
+  <p class="eyebrow r">chapter seven</p>
+  <h2 class="h r-chars">Promises</h2>
+  <p class="p r">We've had our storms. I won't pretend we haven't. But every storm left us something to keep: a promise. These are mine.</p>
+  <div class="deck r-up" id="deck"></div>
+  <p class="hand center r" id="deckHint">swipe the cards</p>
+  <p class="p r small-c">I have so many more, and I'll keep making them to you as we go, hehe.</p>
+
+  <div class="pbox r-up" id="pbox">
+    <img class="pbox-st" width="512" height="512" src="img/s/52.webp" alt="">
+    <h3 class="h-sm">Your turn, baba</h3>
+    <p class="p">Make all the promises Betu wants from you, and all the promises you want to give Betu. Think deeply, type them here, then press the button below.</p>
+    <textarea id="pText" rows="7" placeholder="1. I promise…&#10;2. I promise…" data-lenis-prevent></textarea>
+    <button class="btn" id="pMake">seal my promises ♡</button>
+    <div class="pout" id="pOut" hidden>
+      <img id="pImg" alt="Your promises">
+      <div class="pout-btns">
+        <button class="btn" id="pShare">send it to Betu</button>
+        <a class="btn ghost" id="pSave" download="promises-for-betu.png">save image</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIII. NOW ============ -->
+<section class="chapter" data-theme="dawn" data-scene="globe" id="ch8">
+  <p class="eyebrow r">chapter eight</p>
+  <h2 class="h r-chars">Now</h2>
+  <p class="p r">We still have storms, sometimes big ones. But they're smaller now, further apart, so much better than the middle of us, and every single time we choose each other again.</p>
+  <p class="p r">And now you're a teacher, helping your students pass their GED. I'm so proud of you, baba.</p>
+  <div class="stats r-up">
+    <div><b data-count="15">0</b><span>months</span></div>
+    <div><b data-count="457">0</b><span>days</span></div>
+    <div><b data-count="2000" data-suffix="+">0</b><span>km apart</span></div>
+    <div><b data-count="1">0</b><span>hour apart</span></div>
+  </div>
+  <p class="hand center r">and not one day i stopped choosing you</p>
+  <figure class="vcard tall r-up" data-autoplay data-sound>
+    <video width="644" height="960" src="vid/v4.mp4" poster="vid/v4.webp" muted loop playsinline preload="metadata"></video>
+    <figcaption class="hand">the video I play when I miss you <span class="snd">tap for sound</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ IX. SOMEDAY ============ -->
+<section class="pin-rose" data-theme="dusk" data-scene="rose" id="rose">
+  <div class="rose-stage">
+    <p class="eyebrow">chapter nine</p>
+    <h2 class="h">Someday</h2>
+    <img class="rose-fallback" src="img/s/69.webp" width="512" height="512" alt="">
+    <p class="hand rose-cap">white roses, small and not fully bloomed, just how you like them</p>
+  </div>
+</section>
+
+<section class="chapter" data-theme="dusk" data-scene="rose" id="ch9">
+  <p class="p r">One day I'll land in Yangon. I'll come for your graduation and find you in Hledan.</p>
+  <ul class="dream">
+    <li class="r">Shopping sprees where you take forever, because everything has to be perfect.</li>
+    <li class="r">Pork, croissants, chocolate malt milk, and every Burmese dish you've ever told me about.</li>
+    <li class="r">A little Airbnb, just us.</li>
+    <li class="r">Holding your hand for the first time.</li>
+    <li class="r">The first real hug. No screens, no 2000 km.</li>
+    <li class="r">Kisses. Cuddles until we fall asleep without a phone call in between.</li>
+  </ul>
+  <div class="trio r-up">
+    <img width="512" height="512" src="img/s/64.webp" alt="" loading="lazy">
+    <img width="512" height="512" src="img/s/5.webp" alt="" loading="lazy">
+    <img width="512" height="512" src="img/s/19.webp" alt="" loading="lazy">
+  </div>
+</section>
+
+<!-- ============ FINALE ============ -->
+<section class="chapter finale" data-theme="blush" data-scene="petals" id="finale">
+  <p class="eyebrow r">always</p>
+  <div class="letter r-up">
+    <p class="hand l-open">My baby, my baba, my everything,</p>
+    <p>On our 15th monthversary, I promise you again: from now on, everything will be better. No more fights, only happier days. I'll keep every single promise I made you. I'll support you and help you in everything, baby.</p>
+    <p>No matter what happens, I will always try to understand your side too. I will always be patient with you. I will always listen to everything you say. I'll be gentle, and I'll become the best version of myself, for you.</p>
+    <p class="hand l-close">I love you the most.</p>
+  </div>
+
+  <p class="final-line r">On your birthday, out of every post in the world, you answered mine. You thought you were just saying hello, but you were giving me the best gift I've ever gotten. <em>I'll spend the rest of my life answering you back.</em></p>
+
+  <div class="ily" id="ily"><span class="ily-a">I LOVE YOU</span><span class="ily-so" id="ilySo"></span><span class="ily-b">MUCH</span>
+    <span class="ily-tail">BABY MY BABA MY WIFE MY EVERYTHING MY CUTENESS AGRESSION WANNA SQUEEZE YOU SOOOOOO SOOOOO SOOOOO MUCH</span></div>
+
+  <div class="langs r">
+    <span>ngya chit thu</span><i>·</i><span>main tumse pyaar karta hoon</span>
+  </div>
+  <p class="sign hand r">your Betu</p>
+  <img class="final-st r-up" width="512" height="512" src="img/s/69.webp" alt="">
+
+  <h3 class="h-sm center r more-h">a few more of my favourite things</h3>
+  <div class="more r-up">
+    <figure class="vcard" data-autoplay data-sound><video width="720" height="704" src="vid/v0.mp4" poster="vid/v0.webp" muted loop playsinline preload="metadata"></video><figcaption class="hand">the first smile video</figcaption></figure>
+    <figure class="vcard" data-autoplay data-sound><video width="720" height="720" src="vid/v6.mp4" poster="vid/v6.webp" muted loop playsinline preload="metadata"></video><figcaption class="hand">you, saying something (i love it)</figcaption></figure>
+    <figure><img width="1280" height="960" src="img/p/30.webp" alt="" loading="lazy"><figcaption class="hand">my most favourite picture of you, ever</figcaption></figure>
+    <figure><img width="765" height="1280" src="img/p/20.webp" alt="" loading="lazy"><figcaption class="hand">little you and your sister</figcaption></figure>
+    <figure><img width="1050" height="1400" src="img/p/17.webp" alt="" loading="lazy"></figure>
+    <figure><img width="1050" height="1400" src="img/p/28.webp" alt="" loading="lazy"></figure>
+    <figure><img width="960" height="1280" src="img/p/23.webp" alt="" loading="lazy"></figure>
+    <figure><img width="1280" height="1280" src="img/p/13.webp" alt="" loading="lazy"><figcaption class="hand">your favourite picture of me</figcaption></figure>
+    <figure class="vcard" data-autoplay data-sound><video width="540" height="960" src="vid/v5.mp4" poster="vid/v5.webp" muted loop playsinline preload="metadata"></video><figcaption class="hand">the edit you loved</figcaption></figure>
+  </div>
+
+  <button class="btn again" id="again">say the things ♡</button>
+  <p class="foot">made with all my love · 9 · 11 · 2026</p>
+</section>
+</main>
+
+<!-- letter modal -->
+<div class="modal" id="letterModal" hidden>
+  <div class="modal-sheet" data-lenis-prevent>
+    <button class="modal-x" id="letterClose" aria-label="Close">×</button>
+    <div class="conf">
+<p class="hand">So... Eaindray Khaing Mon... first of all, I love you...</p>
+<p>And I think you already know this but lemme tell you what I feel for you and what I love about you...</p>
+<p>You are the person who entered into my life on 9th August 2025 at 6.29pm my time and 7.29pm your time... This date and time is the luckiest moment of my life, I'm so so so glad I was online at this moment and i received your message, it was "Hello Hi!" This simple message is the start of our journey together, of my love for you, I'm so grateful that I posted that thread post on 8th August 2025 bcz if i hadn't made that post, then you and me won't be here, and i wouldn't be also to love you so much...</p>
+<p>And hence 9th August 2025 at 6.29 pm is the luckiest and the best moment of my life... And I'll forever remember it as the best moment of my life...</p>
+<p>Tbh there's a lot i love about you and I'll tell you all of it now...</p>
+<p>First, the fact that you work so hard everyday, in every single thing you put in your whole efforts and try to achieve perfection, and that, i love that so much i can't even put it in words, it makes me wanna give my 100 percent too, and makes me put all my effort everyday too... 🥰</p>
+<p>Second, the way you care for me, it's almost magical, makes me feel like I'm the most blessed guy in the whole world... You remember when i told you that i was suicidal in the past and you cried for me, you felt sad for me, you felt the need to make me feel loved, that was the moment I decided to give you every happiness in the world and keep you happy forever, bcz a girl who cries for me and becomes sad, i can't let her cry again, ever, so I'll always be your happiness... 🥰</p>
+<p>Third, your patience, the fact that you're not rushing with me in this relationship and taking your time bcz you want to make sure that you are ready, i love that, bcz you're considering our future and making sure we stay happy, I'll wait as long as you want me to, bcz I've sworn to be with you forever...I'll wait 1 year... 2 years... 3 years... Or even 10 years... Just be ready to accept all my love and I'll give you all the happiness in the world till then... And forever after 🥰</p>
+<p>Fourth, your anger, your pouts, your mood swings, i love them, bcz if you're showing them to me then I won't reject them or get irritated, I'll accept them and handle you with love and grace, and make you happy again, and I'll try my hardest to make sure you're never angry in the first place, just be happy and laughing, i love your laugh, it gives me happiness... 🥰</p>
+<p>Fifth, i love how you look, I'm putting this as last bcz looks matter the least to me, what i love is all of you, not just your body and what i have for you is love, not lust, so yeah... But even then, i love your eyes, i love your hair, the fact that you're growing them longer makes me happy, i love your hands, i wanna hold them one day, and i love all of you, i want to hug you everyday... 🥰</p>
+<p>That isn't all, i promise to remember everything about you, your birthday 9th august, your fav food pork(i hope i got that right), your fav movie is final destination, your fav colour is pink, and i also remember that you'll NEVER wear these things and I respect that, here's the list of things you'll never wear outside -<br>Crop top, sleeveless, turtle neck, flower patterns, anything red or black and white pants, also skirts, shorts, leggings, flat shoes, dress, scarf(yangon 😂), tight jeans and ripped jeans and lastly mid thigh, that's all you told me but i remember them all, bcz that's your preference and I'll remember it forever 🥰</p>
+<p>Also the fact that you want to leave myanmar and go to the UK for further studies and also take your family, the fact that you want to get away from your dad, the fact that you're so close to your mom, the fact that you call your sister big rat and she calls your big monkey, i remember it all, bcz i love you the most...</p>
+<p>I'll remember everything, the fact that you have a bruise on your knee and the fact that you get back pain sometimes bcz you sit down too long, the fact that you have 3 moles, right above your elbow on your left arm... 🥰</p>
+    </div>
+  </div>
+</div>
+
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script type="module" src="js/main.js?v=20"></script>
+</body>
+</html>
