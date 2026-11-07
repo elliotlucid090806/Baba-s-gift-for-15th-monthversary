@@ -6,8 +6,6 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 gsap.registerPlugin(ScrollTrigger);
 
-const UNLOCK = Date.UTC(2026, 10, 9, 13, 0, 0); // 9 Nov 2026, 7:29 pm MMT / 6:29 pm IST
-const preview = new URLSearchParams(location.search).has('preview');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let scene = null;
@@ -33,19 +31,8 @@ const fmt = (offsetMin) => {
 function tickLock() {
   $('#clkIN').textContent = fmt(330);
   $('#clkMM').textContent = fmt(390);
-  const left = UNLOCK - Date.now();
-  if (left <= 0 || preview) {
-    $('#countdown').hidden = true;
-    $('#lockNote').innerHTML = left <= 0 ? 'it\'s 7:29 pm in Yangon.<br>15 months ago, you said <b>Hello Hi!</b>' : 'preview mode';
-    const b = $('#openBtn');
-    if (b.hidden) { b.hidden = false; gsap.from(b, { scale: .6, opacity: 0, duration: 1.2, ease: 'elastic.out(1,.6)' }); }
-    return;
-  }
-  const s = Math.floor(left / 1000);
-  $('#cdD').textContent = Math.floor(s / 86400);
-  $('#cdH').textContent = Math.floor(s % 86400 / 3600);
-  $('#cdM').textContent = Math.floor(s % 3600 / 60);
-  $('#cdS').textContent = s % 60;
+  const b = $('#openBtn');
+  if (b.hidden) { b.hidden = false; gsap.from(b, { scale: .6, opacity: 0, duration: 1.2, ease: 'elastic.out(1,.6)' }); }
 }
 tickLock(); const lockTimer = setInterval(tickLock, 1000);
 S.set({ globe: 0, rose: 0, night: 0 });
