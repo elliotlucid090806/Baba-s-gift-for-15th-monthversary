@@ -1,5 +1,5 @@
-import { initScene } from './scene.js?v=26';
-import { createMusic } from './music.js?v=20';
+import { initScene } from './scene.js?v=28';
+import { createMusic } from './music.js?v=28';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -10,7 +10,7 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let scene = null;
 try { scene = initScene($('#gl')); } catch (e) { document.documentElement.classList.add('no-gl'); }
-const S = { set() {}, scroll() {}, burst() {}, ...(scene || {}) };
+const S = { set() {}, scroll() {}, burst() {}, spin() {}, release() {}, ...(scene || {}) };
 
 /* ================= smooth scroll ================= */
 const lenis = new Lenis({ duration: 1.25, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
@@ -159,6 +159,7 @@ function setupStory() {
   gsap.fromTo('.pol-l', { rotate: -14, x: -40 }, { rotate: -6, x: 0, ease: 'none', scrollTrigger: { trigger: '.polaroids', start: 'top bottom', end: 'center center', scrub: true } });
   gsap.fromTo('.pol-r', { rotate: 14, x: 40 }, { rotate: 5, x: 0, ease: 'none', scrollTrigger: { trigger: '.polaroids', start: 'top bottom', end: 'center center', scrub: true } });
 
+  setupSpin($('.hero')); setupSpin($('#rose'));
   setupIG(); setupHop(); setupVideos(); setupEnvelope(); setupReveal(); setupNames(); setupOrb();
   setupScramble(); setupWall(); setupNight(); setupLyrics(); setupDeck(); setupPromiseBox(); setupStats(); setupRose(); setupILY();
 
@@ -282,6 +283,18 @@ function setupNames() {
 }
 
 /* ---------- sticker orb ---------- */
+function setupSpin(el) {
+  let down = false, lx = 0, ly = 0, t = 0;
+  el.addEventListener('pointerdown', e => { if (e.target.closest('button,a,textarea')) return; down = true; lx = e.clientX; ly = e.clientY; t = performance.now(); });
+  addEventListener('pointermove', e => {
+    if (!down) return;
+    S.spin(e.clientX - lx, e.pointerType === 'mouse' ? e.clientY - ly : 0);
+    lx = e.clientX; ly = e.clientY; t = performance.now();
+  }, { passive: true });
+  const up = () => { if (!down) return; down = false; S.release(performance.now() - t > 90); };
+  addEventListener('pointerup', up); addEventListener('pointercancel', up);
+}
+
 function setupOrb() {
   const ids = [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38,
     40, 41, 43, 44, 46, 47, 48, 50, 51, 52, 53, 54, 55, 56, 58, 59, 60, 62, 63, 64, 65, 66, 67, 68, 70, 71, 72];
@@ -296,15 +309,21 @@ function setupOrb() {
   let ax = -12, ay = 0, vx = 0, vy = .18, drag = false, lx = 0, ly = 0, on = false;
   const frame = () => {
     if (!on) return;
-    if (!drag) { vy += (.18 - vy) * .02; vx *= .95; }
-    ay += vy; ax = Math.max(-60, Math.min(60, ax + vx));
+    if (!drag) { ay += vy; ax = Math.max(-60, Math.min(60, ax + vx)); vy += (.18 - vy) * .025; vx *= .92; }
     rot.style.transform = `rotateX(${ax}deg) rotateY(${ay}deg)`;
     requestAnimationFrame(frame);
   };
   whileVisible(orb, () => { if (!on) { on = true; frame(); } }, () => { on = false; }, 0);
-  orb.addEventListener('pointerdown', e => { drag = true; lx = e.clientX; ly = e.clientY; orb.setPointerCapture(e.pointerId); });
-  orb.addEventListener('pointermove', e => { if (!drag) return; vy = (e.clientX - lx) * .35; vx = -(e.clientY - ly) * .2; lx = e.clientX; ly = e.clientY; });
-  const up = () => { drag = false; };
+  let lastMove = 0;
+  orb.addEventListener('pointerdown', e => { drag = true; vx = vy = 0; lx = e.clientX; ly = e.clientY; lastMove = performance.now(); orb.setPointerCapture(e.pointerId); e.preventDefault(); });
+  orb.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const dx = e.clientX - lx, dy = e.clientY - ly;
+    ay += dx * .45; ax = Math.max(-60, Math.min(60, ax - dy * .35));
+    vy = vy * .4 + dx * .45 * .6; vx = vx * .4 - dy * .35 * .6;
+    lx = e.clientX; ly = e.clientY; lastMove = performance.now();
+  });
+  const up = () => { if (performance.now() - lastMove > 90) { vx = 0; vy = .18; } drag = false; };
   orb.addEventListener('pointerup', up); orb.addEventListener('pointercancel', up);
 }
 

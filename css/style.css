@@ -407,3 +407,17 @@ textarea{color:#2a0b1a;background:#fff8fa;font-weight:450}
 
 /* photos and cards: lift them off the dark background */
 .duo img,.trait>img,.mosaic img,.trio img,.wall-track>img,.wall-last img,.vcard video,.sticker-wide,.sticker-float,.discord img{box-shadow:0 0 0 1px rgba(255,214,228,.16),0 24px 50px -22px rgba(0,0,0,.8)}
+
+/* hero: globe sits in the middle of the screen, text above and below it */
+.hero{justify-content:flex-start;padding-top:max(64px,7svh);padding-bottom:28px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.hero-name{text-shadow:0 2px 18px rgba(20,4,12,.75)}
+.globe-gap{height:44svh;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
+.globe-gap .hand{font-size:17px;opacity:.75;margin-bottom:-4px}
+.hero .dual{margin-top:12px}
+.hero .scroll-cue{position:static;transform:none;margin:22px auto 0}
+.intro-lead{padding-top:8vh;padding-bottom:0}
+.intro-lead+.chapter{padding-top:14vh}
+.pin-rose{touch-action:pan-y}
+.orb{touch-action:none;cursor:grab}
+.orb:active{cursor:grabbing}
+@media (min-width:700px){.globe-gap{height:50svh}}

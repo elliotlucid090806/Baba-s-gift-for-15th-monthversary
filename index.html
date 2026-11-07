@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>/* stale-copy guard: if GitHub/browser served an old page, reload the newest one */
+(function(){var V=28;try{fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j.v>V){var u=new URL(location.href);u.searchParams.set('u',j.v);location.replace(u.toString())}}).catch(function(){})}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#240816">
 <meta name="color-scheme" content="dark">
@@ -9,7 +12,7 @@
 <link rel="icon" href="img/s/69.webp">
 <link rel="preload" href="vendor/three.module.min.js" as="script" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="css/style.css?v=26">
+<link rel="stylesheet" href="css/style.css?v=28">
 </head>
 <body class="is-locked">
 
@@ -38,7 +41,7 @@
 <section class="hero" data-theme="dawn" data-scene="globe">
   <p class="eyebrow r">9 August 2025 → 9 November 2026</p>
   <h1 class="hero-name r-chars">Eaindray<br><em>Khaing Mon,</em></h1>
-  <p class="lead r">457 days ago, a girl skipped her own birthday to finish her assignments, got bored, opened Threads, and changed my whole life.</p>
+  <div class="globe-gap" aria-hidden="true"><span class="hand">drag to spin our world</span></div>
   <div class="dual r">
     <div><b>6:29 pm</b><span>for me</span></div>
     <div class="dual-heart">♡</div>
@@ -46,6 +49,10 @@
   </div>
   <p class="hand center r">the same minute, forever</p>
   <div class="scroll-cue"><span>scroll slowly</span><i></i></div>
+</section>
+
+<section class="chapter intro-lead" data-theme="dawn" data-scene="petals">
+  <p class="lead r">457 days ago, a girl skipped her own birthday to finish her assignments, got bored, opened Threads, and changed my whole life.</p>
 </section>
 
 <!-- ============ I. HELLO HI ============ -->
@@ -177,7 +184,7 @@
 
   <h3 class="h-sm r">Then we made <em>us</em></h3>
   <p class="p r">Our own sticker pack, <em>Shubham &amp; Eaindray</em>. You told me making it was one of your favourite moments ever. Every hug, kiss, piggyback, tantrum and <em>gugugaga</em> we can't do in person yet, we do in stickers.</p>
-  <div class="orb r-up" id="orb"><div class="orb-rot" id="orbRot"></div></div>
+  <div class="orb r-up" id="orb" data-lenis-prevent><div class="orb-rot" id="orbRot"></div></div>
   <p class="hand center r">drag to spin our little world</p>
 
   <figure class="vcard tall r-up" data-autoplay data-sound>
@@ -411,6 +418,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script type="module" src="js/main.js?v=26"></script>
+<script type="module" src="js/main.js?v=28"></script>
 </body>
 </html>

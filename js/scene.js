@@ -237,7 +237,9 @@ export function initScene(canvas) {
   const target = { globe: 0, rose: 0, night: 0, open: 0, arc: 0 };
   const cur = { globe: 0, rose: 0, night: 0, open: 0, arc: 0 };
   let px = 0, py = 0, gx = 0, gy = 0, scrollY = 0, boost = 0, lastOpen = -1;
-  addEventListener('pointermove', e => { px = e.clientX / innerWidth - .5; py = e.clientY / innerHeight - .5; }, { passive: true });
+  // mouse hover parallax only; a finger touching the screen must not make the scene jump
+  addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; px = e.clientX / innerWidth - .5; py = e.clientY / innerHeight - .5; }, { passive: true });
+  let spinY = 0, spinV = 0, spinX = 0, spinXV = 0, dragging = false;
   addEventListener('deviceorientation', e => {
     if (e.gamma == null) return;
     gx = Math.max(-1, Math.min(1, e.gamma / 30)) * .5; gy = Math.max(-1, Math.min(1, (e.beta - 45) / 30)) * .5;
@@ -250,9 +252,9 @@ export function initScene(canvas) {
     camera.fov = w < h ? 52 : 40;
     camera.updateProjectionMatrix();
     const narrow = w / h < .7;
-    globe.scale.setScalar(narrow ? .82 : 1);
+    globe.scale.setScalar(narrow ? .86 : .72);
     globe.userData.k = narrow ? .8 : 1;
-    globe.position.y = narrow ? -1.7 : -.15;
+    globe.position.y = 0;
     rose.userData.base = narrow ? .82 : 1;
   }
   addEventListener('resize', resize); resize();
@@ -276,15 +278,22 @@ export function initScene(canvas) {
     arcMat.opacity = cur.globe * .9;
     tube.setDrawRange(0, Math.floor(tubeCount * cur.arc / 3) * 3);
     globe.visible = cur.globe > .005;
-    globe.rotation.y = Math.sin(time * .15) * .25 + (px + gx) * .3;
-    globe.rotation.x = (py + gy) * .15;
+    if (!dragging) {
+      const f = Math.pow(.93, dt * 60);
+      spinY += spinV * dt * 60; spinV *= f;
+      spinX += spinXV * dt * 60; spinXV *= f; spinX *= Math.pow(.97, dt * 60);
+    }
+    globe.rotation.y = Math.sin(time * .15) * .25 + (px + gx) * .3 + spinY;
+    globe.rotation.x = (py + gy) * .15 + spinX;
 
     const la = cur.globe * Math.max(0, cur.arc * 1.4 - .4);
     globe.updateMatrixWorld();
     for (const L of labels) {
       if (la < .01) { L.el.style.opacity = 0; continue; }
-      tmpV.copy(L.v).applyMatrix4(globeInner.matrixWorld).project(camera);
-      L.el.style.opacity = la;
+      tmpV.copy(L.v).applyMatrix4(globeInner.matrixWorld);
+      const facing = tmpV.clone().sub(globe.position).normalize().dot(camera.position.clone().sub(globe.position).normalize());
+      tmpV.project(camera);
+      L.el.style.opacity = la * Math.max(0, Math.min(1, facing * 5 - 1.2));
       L.el.style.transform = `translate(${(tmpV.x * .5 + .5) * innerWidth}px,${(-tmpV.y * .5 + .5) * innerHeight}px)`;
     }
 
@@ -296,7 +305,7 @@ export function initScene(canvas) {
       petalMat.transparent = green.transparent = cur.rose < .99;
       petalMat.depthWrite = !petalMat.transparent;
       if (Math.abs(cur.open - lastOpen) > .002) { shapeRose(cur.open); lastOpen = cur.open; }
-      rose.rotation.y = time * .18 + (px + gx) * .6;
+      rose.rotation.y = time * .18 + (px + gx) * .6 + spinY;
       rose.rotation.x = .14 + (py + gy) * .2 + Math.sin(time * .5) * .03;
       rose.rotation.z = Math.sin(time * .4) * .03;
     }
@@ -312,5 +321,13 @@ export function initScene(canvas) {
     set(o) { Object.assign(target, o); },
     scroll(y) { scrollY = y; },
     burst() { boost = 2.2; },
+    // finger/mouse drag: dx,dy in px since last move
+    spin(dx, dy) {
+      dragging = true;
+      const k = 5.2 / Math.min(innerWidth, 900);
+      spinY += dx * k; spinX = Math.max(-.6, Math.min(.6, spinX + dy * k * .6));
+      spinV = spinV * .5 + dx * k * .5; spinXV = spinXV * .5 + dy * k * .3;
+    },
+    release(stale) { dragging = false; if (stale) { spinV = 0; spinXV = 0; } },
   };
 }
