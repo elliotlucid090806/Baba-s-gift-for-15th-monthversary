@@ -1,4 +1,4 @@
-import { initScene } from './scene.js?v=25';
+import { initScene } from './scene.js?v=26';
 import { createMusic } from './music.js?v=20';
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -84,12 +84,12 @@ function splitChars(el) {
 }
 
 const THEMES = {
-  dawn: ['#f5c9d5', '#e8a3b9', '#260b18', '#572239', '#9c1a4a', '#f0bccb'],
-  rose: ['#f0b8c9', '#de8da8', '#240916', '#521c34', '#8f1343', '#eaaec0'],
-  blush: ['#f7d0db', '#eaaabe', '#260b18', '#572239', '#9c1a4a', '#f2c3d1'],
-  cream: ['#f6d4d6', '#e9adba', '#2a0e17', '#5c2a36', '#9e1d4b', '#f1c6cc'],
-  night: ['#110a16', '#28122d', '#fbe9ef', '#bb8fa2', '#ff8fb3', '#160c1b'],
-  dusk: ['#eebccd', '#d48ca9', '#240a1a', '#4f1f39', '#8a1646', '#e6aec2'],
+  dawn: ['#240816', '#3d0f27', '#fff3f6', '#f0c4d2', '#ff8db4', '#240816'],
+  rose: ['#2c0a1c', '#4a1230', '#fff3f6', '#f2c6d4', '#ff94b9', '#2c0a1c'],
+  blush: ['#26091a', '#40112c', '#fff3f6', '#f0c4d2', '#ff8db4', '#26091a'],
+  cream: ['#270b15', '#421426', '#fff4f2', '#f2c7cf', '#ff92b0', '#270b15'],
+  night: ['#0b0510', '#1d0a22', '#fff3f6', '#e6bfd0', '#ff94b9', '#0b0510'],
+  dusk: ['#2a0b20', '#4a1638', '#fff3f6', '#f0c4d6', '#ff94bd', '#2a0b20'],
 };
 const SCENES = {
   globe: { globe: 1, rose: 0, night: 0 },

@@ -71,6 +71,7 @@ export function initScene(canvas) {
         vec3 pinkA = vec3(1., .8, .87), pinkB = vec3(1., .93, .96), white = vec3(1.);
         vec3 col = mix(mix(pinkA, pinkB, vSeed), white, step(.8, vSeed) * .6);
         float tw = .55 + .45 * sin(uTime * (1.5 + vSeed * 3.) + vSeed * 50.);
+        col = mix(col, vec3(1., .84, .5), step(.9, vSeed));
         col = mix(col, vec3(1., .93, .97), uNight);
         a *= mix(.75 - vDepth * .35, tw * .95, uNight) * uAlpha;
         gl_FragColor = vec4(col * a, a);
@@ -100,22 +101,24 @@ export function initScene(canvas) {
     uniforms: gUni, transparent: true, depthWrite: false,
     vertexShader: `uniform float uPix; varying float vF;
       void main(){ vec4 mv = modelViewMatrix * vec4(position,1.); vec3 n = normalize(mat3(modelViewMatrix) * position);
-        vF = n.z; gl_Position = projectionMatrix * mv; gl_PointSize = uPix * 2.8; }`,
+        vF = n.z; gl_Position = projectionMatrix * mv; gl_PointSize = uPix * 3.6; }`,
     fragmentShader: `uniform float uAlpha; varying float vF;
-      void main(){ float d = length(gl_PointCoord - .5); float a = smoothstep(.5,.2,d) * mix(.1,.9,smoothstep(-.2,1.,vF)) * uAlpha;
-        gl_FragColor = vec4(vec3(.55,.08,.27) * a, a); }`,
+      void main(){ float d = length(gl_PointCoord - .5); float a = smoothstep(.5,.2,d) * mix(.22,1.,smoothstep(-.2,1.,vF)) * uAlpha;
+        gl_FragColor = vec4(vec3(1.,.78,.36) * a * 1.35, a); }`,
   });
   gMat.premultipliedAlpha = true;
+  gMat.blending = THREE.AdditiveBlending;
   globeInner.add(new THREE.Points(gGeo, gMat));
 
   const rimMat = new THREE.ShaderMaterial({
     uniforms: gUni, transparent: true, depthWrite: false,
     vertexShader: `varying float vF; void main(){ vec3 n = normalize(normalMatrix * normal); vF = 1. - abs(n.z);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
-    fragmentShader: `uniform float uAlpha; varying float vF; void main(){ float a = (pow(vF, 3.) * .55 + .05) * uAlpha;
-      gl_FragColor = vec4(vec3(1.,.82,.88) * a, a); }`,
+    fragmentShader: `uniform float uAlpha; varying float vF; void main(){ float a = (pow(vF, 2.5) * .7 + .04) * uAlpha;
+      gl_FragColor = vec4(vec3(1.,.7,.38) * a, a); }`,
   });
   rimMat.premultipliedAlpha = true;
+  rimMat.blending = THREE.AdditiveBlending;
   globeInner.add(new THREE.Mesh(new THREE.SphereGeometry(R * .995, 48, 32), rimMat));
 
   const A = ll(22.5, 79), B = ll(16.84, 96.17);
@@ -130,7 +133,7 @@ export function initScene(canvas) {
   const mid = A.clone().add(B).multiplyScalar(.5).normalize().multiplyScalar(R * 1.45);
   const curve = new THREE.QuadraticBezierCurve3(A, mid, B);
   const tube = new THREE.TubeGeometry(curve, 80, .012, 6, false);
-  const arcMat = new THREE.MeshBasicMaterial({ color: 0xa3164c, transparent: true, opacity: 0 });
+  const arcMat = new THREE.MeshBasicMaterial({ color: 0xff7fae, transparent: true, opacity: 0 });
   const arc = new THREE.Mesh(tube, arcMat);
   globeInner.add(arc);
   const tubeCount = tube.index.count;
@@ -143,9 +146,10 @@ export function initScene(canvas) {
     vertexShader: `uniform float uPix, uTime; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.);
       gl_Position = projectionMatrix * mv; gl_PointSize = uPix * (34. + 10. * sin(uTime * 3.)) * 6. / -mv.z; }`,
     fragmentShader: `uniform float uAlpha; void main(){ float d = length(gl_PointCoord - .5);
-      float a = (smoothstep(.5,.0,d) * .55 + smoothstep(.14,.08,d)) * uAlpha; gl_FragColor = vec4(vec3(.9,.3,.48) * a, a); }`,
+      float a = (smoothstep(.5,.0,d) * .7 + smoothstep(.14,.08,d)) * uAlpha; gl_FragColor = vec4(vec3(1.,.55,.72) * a, a); }`,
   });
   dMat.premultipliedAlpha = true;
+  dMat.blending = THREE.AdditiveBlending;
   globeInner.add(new THREE.Points(dotGeo, dMat));
 
   const C = ll(19.5, 87.5).normalize();
@@ -247,7 +251,7 @@ export function initScene(canvas) {
     camera.updateProjectionMatrix();
     const narrow = w / h < .7;
     globe.scale.setScalar(narrow ? .82 : 1);
-    globe.userData.k = narrow ? .5 : 1;
+    globe.userData.k = narrow ? .8 : 1;
     globe.position.y = narrow ? -1.7 : -.15;
     rose.userData.base = narrow ? .82 : 1;
   }

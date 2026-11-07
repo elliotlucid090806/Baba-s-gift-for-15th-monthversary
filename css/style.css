@@ -1,5 +1,5 @@
 :root{
-  --bg-a:#f5c9d5; --bg-b:#e8a3b9; --ink:#260b18; --muted:#572239; --accent:#9c1a4a; --soft:#f6c9d6; --card:#fffafb;
+  --bg-a:#240816; --bg-b:#3d0f27; --ink:#fff3f6; --muted:#f0c4d2; --accent:#ff8db4; --gold:#f7c96e; --deep:#a81d55; --soft:#f6c9d6; --card:#fffafb;
   --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif; --hand:'Caveat','Segoe Print',cursive;
   --w:min(560px,100%); --ease:cubic-bezier(.22,1,.36,1);
 }
@@ -361,3 +361,49 @@ textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(217,79,120,.
 @media (prefers-reduced-motion:reduce){
   .grain,.dual-heart,.scroll-cue i{animation:none}
 }
+
+/* ================= high-contrast dark theme =================
+   near-white text on deep wine (~15:1), accents ≥7:1, heavier weights so text survives
+   low brightness and sunlight glare; light "paper" surfaces keep dark ink. */
+html{background:#240816;color-scheme:dark}
+.grain{mix-blend-mode:overlay;opacity:.07}
+.eyebrow{color:var(--gold);font-weight:600}
+.p{font-weight:450;font-size:clamp(17.5px,4.7vw,20px)}
+.trait .p,.pbox .p{font-size:16.5px}
+.lead{font-weight:420}
+.h{font-weight:420}
+.hero-name{font-weight:420}
+.h-sm{font-weight:460}
+.hand{font-weight:700}
+.big-quote,.final-line,.dream li,.pc-t,.stats b,.cyl span{font-weight:420}
+.lock-title .big{font-weight:300;background:linear-gradient(160deg,#ffe2a3,#f7c96e 35%,#ff8db4 75%,#ff5f93);-webkit-background-clip:text;background-clip:text}
+.lock-title .it{font-weight:420}
+.eleven-time{font-weight:300;color:var(--gold);text-shadow:0 0 40px rgba(247,201,110,.35)}
+.dual b{font-weight:500}
+.dual span,.clock-place,.stats span,.small-c,.foot,.lock-sub,.lock-note,.scroll-cue{color:var(--muted)}
+
+/* glass surfaces: dark glass instead of white, so light text stays readable */
+.clock,.stats div,.pbox,.call{background:rgba(255,255,255,.07);border:1px solid rgba(255,214,228,.22);box-shadow:0 18px 50px -24px rgba(0,0,0,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.stats b{color:var(--gold)}
+.scramble{background:rgba(255,255,255,.07);border:1px solid rgba(255,214,228,.22);color:var(--accent);font-weight:500}
+.datechip{background:rgba(247,201,110,.12);border:1px solid rgba(247,201,110,.45);color:var(--gold);font-weight:600}
+.dream li{border-bottom-color:rgba(255,141,180,.28)}
+.trait-n{color:var(--gold);font-weight:600}
+.geo-label{background:rgba(30,6,20,.78);border:1px solid rgba(247,201,110,.45);box-shadow:0 0 22px -4px rgba(247,201,110,.45)}
+.geo-label b{color:var(--gold);font-weight:700}
+.geo-label span{color:#fff3f6}
+.mbtn{background:rgba(40,8,26,.72);border:1px solid rgba(255,214,228,.3);color:var(--accent);box-shadow:0 10px 28px -10px rgba(0,0,0,.7)}
+textarea{color:#2a0b1a;background:#fff8fa;font-weight:450}
+.pc-end{color:#2a0b1a}
+.pc-end .pc-n{color:#a81d55}
+
+/* paper / white surfaces keep dark ink and deep pink */
+.letter .l-open,.letter .l-close,.conf p.hand,.pol figcaption,.env-paper .hand{color:var(--deep)}
+.letter p,.conf p{font-weight:400;color:#2a0b1a}
+.lyrics span{opacity:.32}
+.lyrics span.on{color:#ffd0df;text-shadow:0 0 24px rgba(255,141,180,.55)}
+.ily{text-shadow:0 0 30px rgba(255,141,180,.35)}
+.rose-cap{text-shadow:0 0 14px rgba(0,0,0,.9),0 0 4px rgba(0,0,0,.8)}
+
+/* photos and cards: lift them off the dark background */
+.duo img,.trait>img,.mosaic img,.trio img,.wall-track>img,.wall-last img,.vcard video,.sticker-wide,.sticker-float,.discord img{box-shadow:0 0 0 1px rgba(255,214,228,.16),0 24px 50px -22px rgba(0,0,0,.8)}
