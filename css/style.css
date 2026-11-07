@@ -1,5 +1,5 @@
 :root{
-  --bg-a:#fff4f6; --bg-b:#fbdfe7; --ink:#3a1c2a; --muted:#8a5a6c; --accent:#d94f78; --soft:#f6c9d6; --card:#fffafb;
+  --bg-a:#f5c9d5; --bg-b:#e8a3b9; --ink:#260b18; --muted:#572239; --accent:#9c1a4a; --soft:#f6c9d6; --card:#fffafb;
   --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif; --hand:'Caveat','Segoe Print',cursive;
   --w:min(560px,100%); --ease:cubic-bezier(.22,1,.36,1);
 }
@@ -62,7 +62,7 @@ body.is-locked .geo-label{display:none}
 .lock-for{margin-bottom:22px}
 .lock-title{display:flex;flex-direction:column;align-items:center;line-height:.85;margin-bottom:14px}
 .lock-title .big{font:200 clamp(120px,40vw,190px)/.8 var(--serif);font-variation-settings:"opsz" 144;letter-spacing:-.05em;
-  background:linear-gradient(160deg,var(--accent),#f39bb4 60%,#c7385f);-webkit-background-clip:text;background-clip:text;color:transparent}
+  background:linear-gradient(160deg,var(--accent),#d6497a 55%,#6e0f33);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lock-title .it{font:300 italic clamp(40px,12vw,60px)/1 var(--serif)}
 .lock-sub{font-size:15px;color:var(--muted);margin-bottom:34px}
 .clocks{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:30px}

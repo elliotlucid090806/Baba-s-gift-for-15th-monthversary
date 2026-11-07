@@ -68,7 +68,7 @@ export function initScene(canvas) {
           float d = length(c);
           a = smoothstep(.5, .05, d) * mix(.55, 1., smoothstep(.5, .35, d));
         }
-        vec3 pinkA = vec3(.98, .62, .72), pinkB = vec3(1., .86, .9), white = vec3(1.);
+        vec3 pinkA = vec3(1., .8, .87), pinkB = vec3(1., .93, .96), white = vec3(1.);
         vec3 col = mix(mix(pinkA, pinkB, vSeed), white, step(.8, vSeed) * .6);
         float tw = .55 + .45 * sin(uTime * (1.5 + vSeed * 3.) + vSeed * 50.);
         col = mix(col, vec3(1., .93, .97), uNight);
@@ -103,7 +103,7 @@ export function initScene(canvas) {
         vF = n.z; gl_Position = projectionMatrix * mv; gl_PointSize = uPix * 2.8; }`,
     fragmentShader: `uniform float uAlpha; varying float vF;
       void main(){ float d = length(gl_PointCoord - .5); float a = smoothstep(.5,.2,d) * mix(.1,.9,smoothstep(-.2,1.,vF)) * uAlpha;
-        gl_FragColor = vec4(vec3(.85,.31,.47) * a, a); }`,
+        gl_FragColor = vec4(vec3(.55,.08,.27) * a, a); }`,
   });
   gMat.premultipliedAlpha = true;
   globeInner.add(new THREE.Points(gGeo, gMat));
@@ -113,7 +113,7 @@ export function initScene(canvas) {
     vertexShader: `varying float vF; void main(){ vec3 n = normalize(normalMatrix * normal); vF = 1. - abs(n.z);
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
     fragmentShader: `uniform float uAlpha; varying float vF; void main(){ float a = (pow(vF, 3.) * .55 + .05) * uAlpha;
-      gl_FragColor = vec4(vec3(.95,.45,.6) * a, a); }`,
+      gl_FragColor = vec4(vec3(1.,.82,.88) * a, a); }`,
   });
   rimMat.premultipliedAlpha = true;
   globeInner.add(new THREE.Mesh(new THREE.SphereGeometry(R * .995, 48, 32), rimMat));
@@ -130,7 +130,7 @@ export function initScene(canvas) {
   const mid = A.clone().add(B).multiplyScalar(.5).normalize().multiplyScalar(R * 1.45);
   const curve = new THREE.QuadraticBezierCurve3(A, mid, B);
   const tube = new THREE.TubeGeometry(curve, 80, .012, 6, false);
-  const arcMat = new THREE.MeshBasicMaterial({ color: 0xe0527c, transparent: true, opacity: 0 });
+  const arcMat = new THREE.MeshBasicMaterial({ color: 0xa3164c, transparent: true, opacity: 0 });
   const arc = new THREE.Mesh(tube, arcMat);
   globeInner.add(arc);
   const tubeCount = tube.index.count;
